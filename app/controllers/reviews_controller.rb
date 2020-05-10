@@ -18,14 +18,14 @@ class ReviewsController < ApplicationController
     end
 
     def edit 
-        @review = Review.find_by(id: params[:id])
+        set_review
         if params[:shoe_id] && current_user.id == @review.user_id 
             current_shoe
         end
     end 
 
     def update
-        @review = Review.find_by(id: params[:id])
+        set_review
         if @review.update(review_params) && @review.valid?
             redirect_to shoe_review_path(@shoe, @review)
         else 
@@ -46,4 +46,9 @@ class ReviewsController < ApplicationController
     def current_shoe
         @shoe = Shoe.find_by(id: params[:shoe_id])
     end 
+
+    def set_review 
+        @review = Review.find_by(id: params[:id])
+    end
+
 end
