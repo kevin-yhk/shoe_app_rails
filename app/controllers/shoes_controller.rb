@@ -13,6 +13,15 @@ class ShoesController < ApplicationController
         end
     end
 
+    def update
+        if @shoe.update(shoe_params)
+            @shoe.save
+            redirect_to @shoe
+        else
+            render :edit
+        end
+    end
+
     private
 
     def shoe_params
