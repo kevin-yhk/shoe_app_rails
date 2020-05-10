@@ -6,6 +6,16 @@
     <br>
     <%= f.label :review %> 
     <%= f.text_area :review %>
+    
+    <br>
+    <% if @review.errors.any? %>
+    <ul>
+      <% @review.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+    <% end %>
+    
     <br>
     <%= f.submit %>
   <% end %>
