@@ -6,4 +6,8 @@ module ApplicationHelper
     def logged_in?
         !!session[:user_id]
     end 
+
+    def verification
+        redirect_to '/' unless logged_in?
+    end
 end
