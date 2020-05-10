@@ -17,6 +17,10 @@ class ReviewsController < ApplicationController
         end
     end
 
+    def show 
+        @review = @shoe.reviews.find_by(id: params[:id])
+    end 
+
     private
     
     def review_params
