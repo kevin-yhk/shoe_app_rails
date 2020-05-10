@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   
+  root 'sessions#home'
   
-  resources :reviews
-  resources :shoes
+  resources :shoes do 
+    resources :reviews
+  end 
 
   get '/signup', to:'users#new'
   get '/signin', to: 'sessions#new'
