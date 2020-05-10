@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-
+    before_action :current_user
     def new 
         if params[:shoe_id]
             @shoe = Shoe.find_by(id: params[:shoe_id])
@@ -15,5 +15,11 @@ class ReviewsController < ApplicationController
         else
             render :new
         end
+    end
+
+    private
+    
+    def review_params
+        params.require(:review).permit(:rating, :review, :user_id)
     end
 end
