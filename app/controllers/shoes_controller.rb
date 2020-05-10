@@ -1,5 +1,10 @@
 class ShoesController < ApplicationController
     before_action :present_shoe, :logged_in?, :verification
+    
+    def index
+        @shoes = Shoe.ordered_model
+    end
+
     def new 
         @shoe = Shoe.new
     end
