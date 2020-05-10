@@ -1,5 +1,5 @@
 class ShoesController < ApplicationController
-
+    before_action :present_shoe
     def new 
         @shoe = Shoe.new
     end
@@ -18,4 +18,8 @@ class ShoesController < ApplicationController
     def shoe_params
         params.require(:shoe).permit(:model, :brand)
     end
+
+    def present_shoe
+        @shoe = Shoe.find_by(id: params[:id])
+    end 
 end
