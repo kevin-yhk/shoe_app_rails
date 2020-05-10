@@ -17,6 +17,22 @@ class ReviewsController < ApplicationController
         end
     end
 
+    def edit 
+        @review = Review.find_by(id: params[:id])
+        if params[:shoe_id] && current_user.id == @review.user_id 
+            current_shoe
+        end
+    end 
+
+    def update
+        @review = Review.find_by(id: params[:id])
+        if @review.update(review_params) && @review.valid?
+            redirect_to shoe_review_path(@shoe, @review)
+        else 
+            render :edit
+        end
+    end
+
     def show 
         @review = @shoe.reviews.find_by(id: params[:id])
     end 
