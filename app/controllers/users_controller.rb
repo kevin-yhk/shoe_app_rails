@@ -7,11 +7,16 @@ class UsersController < ApplicationController
         @user = User.create(user_params)
         if @user.valid? 
             session[:user_id] = @user.id
-            redirect_to user_path
+            redirect_to @user
         else
             render :new
         end
     end
+
+    def show
+        @user = User.find_by(id: params[:id])
+    end
+
 
     private
 
