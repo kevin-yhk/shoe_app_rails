@@ -1,5 +1,5 @@
 class ShoesController < ApplicationController
-    before_action :present_shoe
+    before_action :present_shoe, :logged_in?, :verification
     def new 
         @shoe = Shoe.new
     end
