@@ -1,0 +1,11 @@
+<%= form_for [@shoe, @review] do |f| %>
+    
+    <%= f.hidden_field :user_id, :value => current_user.id%>
+    <%= f.label :title %> 
+    <%= f.text_field :title%>
+    <br>
+    <%= f.label :review %> 
+    <%= f.text_area :review %>
+    <br>
+    <%= f.submit %>
+  <% end %>
