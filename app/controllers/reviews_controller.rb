@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-    before_action :current_user
+    before_action :current_user, :current_shoe
     def new 
         if params[:shoe_id]
             @shoe = Shoe.find_by(id: params[:shoe_id])
@@ -22,4 +22,8 @@ class ReviewsController < ApplicationController
     def review_params
         params.require(:review).permit(:rating, :review, :user_id)
     end
+
+    def current_shoe
+        @shoe = Shoe.find_by(id: params[:shoe_id])
+    end 
 end
