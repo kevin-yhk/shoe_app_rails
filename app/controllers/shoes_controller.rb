@@ -22,6 +22,11 @@ class ShoesController < ApplicationController
         end
     end
 
+    def destroy
+        present_shoe.destroy
+        redirect_to shoes_path
+    end
+
     private
 
     def shoe_params
