@@ -4,6 +4,16 @@
     <br>
     <%= f.label :brand %> 
     <%= f.text_field :brand %>
+    
+    <br>
+    <% if @shoe.errors.any? %>
+    <ul>
+      <% @shoe.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+    <% end %>
+
     <br>
     <%= f.submit %>
   <% end %>
