@@ -1,3 +1,5 @@
+
+<%=flash[:notice]%>
 <ul>
 <% @shoes.each do |shoe| %>
     <h4> Model: <%= link_to shoe.model, shoe_path(shoe) %> </h4>
