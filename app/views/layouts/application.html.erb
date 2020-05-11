@@ -5,6 +5,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <% if logged_in? %>
+    <%= link_to "Log out", logout_path, method: :delete %>
+    <%= link_to "My Profile", user_path(current_user), method: :get %>
+    <%= link_to "All Shoes", shoes_path, method: :get%>
+    <% end %>
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
