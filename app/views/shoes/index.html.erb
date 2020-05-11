@@ -1,1 +1,9 @@
-<h1>index page</h1>
+<ul>
+<% @shoes.each do |shoe| %>
+    <h4> Model: <%= link_to shoe.model, shoe_path(shoe) %> </h4>
+    <li>  Brand: <%= shoe.brand %> </li>
+    <br>
+    
+    
+    <% end %>
+</ul>
