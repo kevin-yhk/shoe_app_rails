@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    before_action :verification, :logged_in?, :current_user
+    
     def new 
         @user = User.new
     end

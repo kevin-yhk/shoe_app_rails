@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-    before_action :current_user, :current_shoe
+    before_action :current_user, :current_shoe, :logged_in?, :verification
     def new 
         if params[:shoe_id]
             @shoe = Shoe.find_by(id: params[:shoe_id])
