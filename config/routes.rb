@@ -6,10 +6,14 @@ Rails.application.routes.draw do
     resources :reviews
   end 
 
+  resources :users
+
   get '/signup', to:'users#new'
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  resources :users
+  get '/:anywhere', to: "sessions#home"
+  get '/auth/facebook/callback' => 'sessions#facebook'
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
