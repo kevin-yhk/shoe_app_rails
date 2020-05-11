@@ -37,6 +37,14 @@ class ReviewsController < ApplicationController
         @review = @shoe.reviews.find_by(id: params[:id])
     end 
 
+    def destroy
+        @review = Review.find_by(id: params[:id])
+        if params[:shoe_id] && current_user.id == @review.user_id 
+            @review.destroy
+            redirect_to shoe_path(@shoe)
+        end
+    end
+
     private
     
     def review_params
