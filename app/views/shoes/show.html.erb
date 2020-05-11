@@ -1,1 +1,12 @@
-<h1>Testing <%=@shoe.brand%></h1>
+<h1>The <%=@shoe.model%></h1>
+<h3>Brand: <%=@shoe.brand%></h3>
+
+<p> <%=link_to "All Shoes", shoes_path%> </p>
+<p> <%=link_to "Edit Shoe", edit_shoe_path(@shoe)%> </p>
+<p> <%= link_to "Delete Shoe", shoe_path(@shoe), method: :delete %> </p>
+
+<h4> Shoe Reviews </h4>
+<% @reviews.each do |r| %>
+        <h4> Title: <%= link_to r.title, shoe_review_path(@shoe, r)%></h4>
+    <% end %>
+<p> <%= link_to "Write a New Review", new_shoe_review_path(@shoe)%> </p>
