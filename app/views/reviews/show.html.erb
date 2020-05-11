@@ -3,7 +3,7 @@
 <h2><%=@review.title%></h2>
 <p><%=@review.review%></p>
 
-<%= link_to @shoe.model, shoe_path(@shoe)%><br>
+<h4>Back to: <%= link_to @shoe.model, shoe_path(@shoe)%><br></h4>
 
 <% if current_user.id == @review.user_id%>
     <%= link_to 'Edit Review', edit_shoe_review_path(@shoe, @review)%><br>
