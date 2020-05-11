@@ -2,8 +2,13 @@
 <h3>Brand: <%=@shoe.brand%></h3>
 
 <p> <%=link_to "All Shoes", shoes_path%> </p>
-<p> <%=link_to "Edit Shoe", edit_shoe_path(@shoe)%> </p>
-<p> <%= link_to "Delete Shoe", shoe_path(@shoe), method: :delete %> </p>
+
+
+
+<p><%=link_to "Edit Shoe", edit_shoe_path(@shoe)%></p>
+<p><%= link_to "Delete Shoe", shoe_path(@shoe), method: :delete %> </p>
+
+
 
 <h4> Shoe Reviews </h4>
 <% @reviews.each do |review| %>
