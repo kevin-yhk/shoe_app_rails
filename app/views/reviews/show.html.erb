@@ -1,3 +1,11 @@
-<%=@shoe.model%>
-<%=@review.title%>
-<%=@review.review%>
+<h1>About the: <%=@shoe.model%></h1>
+
+<h2><%=@review.title%></h2>
+<p><%=@review.review%></p>
+
+<%= link_to @shoe.model, shoe_path(@shoe)%><br>
+
+<% if current_user.id == @review.user_id%>
+    <%= link_to 'Edit Review', edit_shoe_review_path(@shoe, @review)%><br>
+    <%= link_to 'Delete Review', shoe_review_path(@shoe, @review), method: :delete %>
+<%end%>
