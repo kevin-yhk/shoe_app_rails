@@ -1,11 +1,13 @@
 
+
 <%=flash[:notice]%>
-<ul>
+
 <% @shoes.each do |shoe| %>
-    <h4> Model: <%= link_to shoe.model, shoe_path(shoe) %> </h4>
-    <li>  Brand: <%= shoe.brand %> </li>
+    <h3><ul>
+    <li> Model: <%= link_to shoe.model, shoe_path(shoe) %> </li>
+    <li> Brand: <%= shoe.brand %> </li>
+    </ul></h3>
     <br>
-    
-    
-    <% end %>
-</ul>
+<% end %>
+
+<%= link_to "Create New Shoe", new_shoe_path%>
