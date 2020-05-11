@@ -1,3 +1,12 @@
 <h1>Welcome <%=@user.username%></h1>
 
-<%= link_to "Log out", logout_path, method: :delete %>
+<p>Click on the link above "All Shoes" and add your own reviews to<br> 
+already existing shoes, or create a shoe of your own!</p>
+
+<h3>My Shoe Reviews</h3>
+
+<ul><% @user.reviews.each do |review| %>
+    <li><%= link_to review.shoe.model, shoe_path(review.shoe)%></li>
+<% end %>
+</ul>
+   
