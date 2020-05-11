@@ -32,6 +32,10 @@ class ShoesController < ApplicationController
         redirect_to shoes_path
     end
 
+    def show
+        @reviews = @shoe.reviews 
+    end
+
     private
 
     def shoe_params
