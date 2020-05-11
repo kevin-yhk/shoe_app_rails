@@ -12,6 +12,7 @@ class ShoesController < ApplicationController
     def create
         @shoe = Shoe.create(shoe_params)
         if @shoe.valid?
+            flash[:notice] = "A New Shoe Has Been Created"
             redirect_to @shoe
         else
             render :new
@@ -21,6 +22,7 @@ class ShoesController < ApplicationController
     def update
         if @shoe.update(shoe_params)
             @shoe.save
+            flash[:notice] = "Shoe Entry Has Been Updated"
             redirect_to @shoe
         else
             render :edit
@@ -29,6 +31,7 @@ class ShoesController < ApplicationController
 
     def destroy
         present_shoe.destroy
+        flash[:notice] = "Shoe Entry Has Been Deleted"
         redirect_to shoes_path
     end
 
